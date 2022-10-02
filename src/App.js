@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { OrbitControls, shaderMaterial, useTexture } from '@react-three/drei'
+import { Canvas , useLoader } from '@react-three/fiber'
+import { OrbitControls, PerspectiveCamera, useTexture } from '@react-three/drei'
 import { BoxGeometry } from 'three'
 import Navbar from './components/Navbar';
 import ISSModel from './components/ISSModel';
+import { TextureLoader } from 'three/src/loaders/TextureLoader'; 
 
 function calcPosFromLatLonRad(lat,lon,radius){
   
@@ -40,9 +41,10 @@ const ISS = (props)=>{
 const Earth = (props)=>{
   
   const earthRef = useRef()
-  const texture = useTexture('images/earthmap4k.jpg')
+  const colorMap = useTexture('images/earthmap4k.jpg')
+  
 
-  // useFrame((state, delta) => (earthRef.current.rotation.y -= 0.001))
+  //useFrame((state, delta) => (earthRef.current.rotation.y -= 0.001))
 
   //earthRef.current.position.x = 1
 
@@ -53,7 +55,9 @@ const Earth = (props)=>{
     scale = {1.5}
     >
       <sphereGeometry args={[1,64,32]}/>
-      <meshPhysicalMaterial map={texture} />
+      <meshPhysicalMaterial 
+          map={colorMap} 
+          />
     </mesh>
   )
 }
@@ -101,8 +105,9 @@ function App() {
 
       <div class="hero-body ">
           <Canvas className='main'>
-            <ambientLight intensity={0.4}/>
-            <OrbitControls></OrbitControls>
+            <PerspectiveCamera makeDefault position={[0,0,5]} ></PerspectiveCamera>
+            <ambientLight intensity={0.5}/>
+            <OrbitControls enablePan={false} target={ISSPosition}></OrbitControls>
             <pointLight position={[10, 10, 10]} />
             <Earth position={[0, 0, 0]} />
             {/* <ISS position={ISSPosition}></ISS> */}
