@@ -7,7 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(30, 30, 30);
+  background-image: url("../public/images/images.jpg");
 }
 
 code {
@@ -22,7 +22,6 @@ code {
   height: 50rem !important;
   width: 100%;
   border-radius: 2rem;
-  /* background-color: rgb(16, 16, 16) !important; */
-  background-image: url('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.333HsLT7kujjsjJ0-ELmwwHaEK%26pid%3DApi&f=1&ipt=9f1a8c8fac9776455cb95e3b8c97a6258200ee0e5ff581f933a8a305c2cd9e9c&ipo=images');
+  background-color: rgb(16, 16, 16) !important;
 }
 
