@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="buttons">
           
           <a className="button is-primary">
-            WOW
+            ISS
           </a>
         </div>
       </div>
